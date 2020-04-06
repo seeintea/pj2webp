@@ -28,6 +28,7 @@ class Footer extends React.Component {
 						display: flex;
 						flex-direction: column;
 						align-items: center;
+						margin: 3rem 0;
 					}
 					div {
 						padding: 5px 0 0 0;

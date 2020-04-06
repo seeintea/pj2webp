@@ -6,15 +6,21 @@ class Header extends React.Component {
 
 	constructor(props){
 		super(props);
+		this.state = {
+			menu: false
+		}
 	}
 
-	actMenuClick() {
-		
+	actMenuClick = () => {
+		const status = !this.state.menu;
+		this.setState({
+			menu: status
+		})
 	}
 
 	render() {
 		return(
-			<header>
+			<header className='active'>
 				<div className='warp'>
 					<Link href="/">
 						<a>{this.props.title}</a>
@@ -25,7 +31,7 @@ class Header extends React.Component {
 						</svg>
 					</div>
 				</div>
-				<Slider />
+				<Slider open={this.state.menu} actMenu={this.actMenuClick} />
 				<style jsx>{`
 					header {
 						width: 100%;
@@ -34,6 +40,9 @@ class Header extends React.Component {
 						top: 0;
 						z-index: 1;
 						background: #285943;
+					}
+					.active {
+						box-shadow: 0 0 1px 1px rgba(0,0,0,0.3);
 					}
 					.warp {
 						height: 100%;
