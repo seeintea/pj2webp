@@ -7,6 +7,10 @@ module.exports = withSass(withImage({
 			test: /\.(ttf|eot|woff|woff2)$/,
       use: ['file-loader']
 		});
+		config.module.rules.push({
+			test: /\.md$/,
+      use: ['raw-loader']
+		});
     return config;
   }
 }))
