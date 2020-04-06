@@ -16,6 +16,11 @@
 
 # static
 *.ttf
+*.jpg
+*.png
+/markdown
+test.*
+*ico
 
 # misc
 .DS_Store
