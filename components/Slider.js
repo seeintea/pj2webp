@@ -69,13 +69,9 @@ class Slider extends React.Component {
 
 	render() {
 
-		if(!this.props.open) {
-			return <div></div>;
-		}
-
 		return (
-			<div className='slider'>
-				<div className='warp'>
+			<div>
+				<div className={this.props.open ? 'warp isSlider' : 'warp' } >
 					<div className='control'>
 						<div className='title'>{config.slider.title}</div>
 						<div className='close' onClick={this.childMenuClick}>
@@ -113,19 +109,18 @@ class Slider extends React.Component {
 					</this.Contact>
 				</div>
 				<style jsx>{`
-					.slider {
-						width: 100%;
-						height: 100vh;
-						position: fixed;
-						top: 0;
-						background-color: rgba(0,0,0,0.5);
-					}
 					.warp {
 						width: 400px;
 						height: 100%;
-						position: fixed;
-						right: 0;
 						background-color: #fff;
+						position: fixed;
+						top: 0;
+						right: -400px;
+						z-index: 3;
+						transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+					}
+					.isSlider {
+						right: 0;
 					}
 					.control {
 						width: 100%;

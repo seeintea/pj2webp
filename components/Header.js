@@ -32,6 +32,7 @@ class Header extends React.Component {
 					</div>
 				</div>
 				<Slider open={this.state.menu} actMenu={this.actMenuClick} />
+				<div className={ this.state.menu ? 'curtain' : '' }></div>
 				<style jsx>{`
 					header {
 						width: 100%;
@@ -71,6 +72,14 @@ class Header extends React.Component {
 						width: 14px;
 						height: 14px;
 						fill: #fff;
+					}
+					.curtain {
+						width: 100%;
+						height: 100vh;
+						position: fixed;
+						top: 0;
+						z-index: 2;
+						background-color: rgba(0,0,0,0.5);
 					}
 				`}</style>
 			</header>
