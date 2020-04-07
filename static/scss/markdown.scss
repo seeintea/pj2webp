@@ -1,42 +1,58 @@
-code {
-    padding: .2em .4em;
-    margin: 0;
-    font-size: 85%;
-    background-color: rgba(27, 31, 35, .05);
-    border-radius: 3px;
-}
-
-pre {
-    position: relative;
-    border-radius: 3px;
-    border: 1px solid #282c34;
-    background: #282c34;
-    overflow: hidden;
+.markdown-body {
     code {
-        display: block;
-        padding: .3rem .9rem;
-        overflow-y: auto;
-        font-weight: 300;
-        font-size: .9rem;
-        font-family: monospace, monospace;
-        line-height: 1.8rem;
-        color: #abb2bf;
+        padding: .2em .4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27, 31, 35, .05);
+        border-radius: 3px;
     }
-    code.has-numbering {
-        margin-left: 1.2rem;
+    pre {
+        position: relative;
+        border-radius: 3px;
+        border: 1px solid #282c34;
+        background: #282c34;
+        overflow: hidden;
+        code {
+            display: block;
+            padding: .3rem .9rem;
+            overflow-y: auto;
+            font-weight: 300;
+            font-size: .9rem;
+            font-family: monospace, monospace;
+            line-height: 1.8rem;
+            color: #abb2bf;
+        }
     }
-}
-
-blockquote {
-    padding: 0 1em;
-    color: #6a737d;
-    border-left: .25em solid #dfe2e5;
-    margin: 0;
-}
-
-p {
+    blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: .25em solid #dfe2e5;
+        margin: 0;
+    }
     a {
         color: #77af9c;
         text-decoration: none;
+    }
+    table {
+        border-spacing: 0;
+        border-collapse: collapse;
+        display: block;
+        width: 100%;
+        overflow: auto;
+    }
+    td,
+    th {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+    }
+    th {
+        font-weight: 600;
+    }
+    table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+    }
+    table tr:nth-child(2n) {
+        background-color: #f6f8fa;
     }
 }
