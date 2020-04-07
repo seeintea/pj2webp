@@ -17,6 +17,10 @@ class Article extends React.Component {
 		box-shadow: 0px 10px 20px rgba(1,1,1,0.1);
 		border-radius: 0.3rem 0.3rem 0 0;
 		margin: -7rem auto 0;
+		@media (max-width: 500px) {
+			border-radius: 0;
+			padding: 1.1rem;
+		}
 	`;
 
 	ArtTitle = styled.div`
@@ -77,7 +81,7 @@ class Article extends React.Component {
 						{ this.props.classity }
 					</div>
 				</this.ArtInfo>
-				<this.Content dangerouslySetInnerHTML={getMarkdownText(this.props.input)}>
+				<this.Content className='markdown-body' dangerouslySetInnerHTML={getMarkdownText(this.props.input)}>
 				</this.Content>
 			</this.Warp>
 		)

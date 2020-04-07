@@ -1,13 +1,17 @@
 import React from 'react';
+import config from '../web.config';
 
 class Footer extends React.Component {
 	constructor(props){
 		super(props);
+		this.state = {
+			...config.footer
+		}
 	}
 
 	getICPInfo() {
-		if(this.props.icp !== undefined){
-			return this.props.icp;
+		if(this.state.icp !== undefined){
+			return this.state.icp;
 		}
 	}
 

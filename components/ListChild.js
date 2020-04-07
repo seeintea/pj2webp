@@ -1,5 +1,6 @@
 import React from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import Link from 'next/link';
 
 class ListChild extends React.Component {
 
@@ -10,6 +11,9 @@ class ListChild extends React.Component {
 	ListChild = styled.div`
 		position: relative;
 		padding: 3rem 1.2rem;
+		@media (max-width: 500px) {
+			padding: 0;
+		}
 		& .opacity {
 			position: absolute;
 			width: 11rem;
@@ -22,12 +26,21 @@ class ListChild extends React.Component {
 			top: 1.9rem;
 			left: -2.1rem;
 			cursor: default;
+			user-select:none;
+			@media (max-width: 500px) {
+				display: none;
+			}
 		}
 		& .title {
 			font-size: 3rem;
 			font-weight: bold;
-			color: #333;
 			margin: 3rem 0 .5rem 0;
+			a {
+				color: #333;
+			}
+			@media (max-width: 500px) {
+				font-size: 2.1rem;
+			}
 		}
 		& .datetime {
 			font-size: 0.9rem;
@@ -36,6 +49,9 @@ class ListChild extends React.Component {
 		}
 		& .intro {
 			font-size: .9rem;
+			@media (max-width: 500px) {
+				padding: 0 0 0.9rem 0;
+			}
 		}
 		&:after {
 			content: "";
@@ -55,7 +71,7 @@ class ListChild extends React.Component {
 				<div className='opacity'>
 					{ this.props.title.slice(0,1) }
 				</div>
-				<p className='title'>{ this.props.title }</p>
+				<p className='title'><Link href={ this.props.url }><a>{ this.props.title }</a></Link></p>
 				<p className='datetime'>{ this.props.date }</p>
 				<div className='intro'>
 					{ this.props.intro }

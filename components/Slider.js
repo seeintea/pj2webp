@@ -120,7 +120,7 @@ class Slider extends React.Component {
 						transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
 					}
 					.isSlider {
-						right: 0;
+						right: 0 !important;
 					}
 					.control {
 						width: 100%;
@@ -151,6 +151,12 @@ class Slider extends React.Component {
 						width: 14px;
 						height: 14px;
 						fill: #fff;
+					}
+					@media (max-width: 500px){
+						.warp {
+							width: 100%;
+							right: -100%;
+						}
 					}
 				`}</style>
 			</div>

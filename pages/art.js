@@ -1,16 +1,10 @@
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Article from '../components/Article';
-
-import config from '../web.config';
-
 import React from 'react';
 import styled from 'styled-components';
 
-import '../static/scss/normalize.scss';
-import '../static/scss/extra.scss'
+import Article from '../components/Article';
 
 import md from '../markdown/一份毫无用处的webpack参考文档.md';
+//import md from '../markdown/一点都不平坦的软件设计师.md';
 
 
 class Post extends React.Component {
@@ -25,15 +19,16 @@ class Post extends React.Component {
 	Blank = styled.div`
 		height: 15rem;
 		background-color: #285943;
+		@media (max-width: 500px) {
+				height: 12rem;
+		}
 	`;
 
 	render() {
 		return (
 		<div>
-			<Header {...(config.header)}/>
 			<this.Blank />
 			<Article { ...this.postInfo } />
-			<Footer { ...(config.footer)} />
 		</div>
 		)
 	}

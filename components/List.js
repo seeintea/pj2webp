@@ -2,9 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ListChild from './ListChild';
 
-import test from '../test.info';
-
-const data = test.info;
+import info from '../test.info';
 
 class List extends React.Component {
 
@@ -15,22 +13,26 @@ class List extends React.Component {
 		box-shadow: 0px 10px 20px rgba(1,1,1,0.1);
 		border-radius: 0.3rem 0.3rem 0 0;
 		margin: -7rem auto 0;
+		@media (max-width: 500px) {
+			margin: auto;
+			padding: 1rem;
+			border-radius: 0;
+		}
 	`;
 	Tip = styled.div`
 		max-width: 100%;
 		text-align: center;
 		font-size: 1rem;
 		color: #999;
+		cursor: default;
 	`;
 
 	render() {
 		return (
 			<this.Warp>
 				<this.Tip>LATEST</this.Tip>
-				<ListChild { ...data } />
-				<ListChild { ...data } />
-				<ListChild { ...data } />
-				<ListChild { ...data } />
+				<ListChild {...info.md_2} />
+				<ListChild {...info.md_1} />
 			</this.Warp>
 		)
 	}

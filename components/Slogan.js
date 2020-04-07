@@ -18,10 +18,15 @@ class Slogan extends React.Component {
 			text-align: center;
 			padding: 0 2.1rem;
 			cursor: default;
+			user-select:none;
 		}
 		& p:hover {
 			text-shadow: 1px 1px 10px rgba(0,0,0,0.5);
 		}
+		@media (max-width: 500px) {
+			height: 100vh;
+		}
+		
 	`;
 
 	render() {

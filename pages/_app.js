@@ -1,9 +1,12 @@
 import App from 'next/app';
 import React from 'react';
+
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import '../static/scss/normalize.scss';
 import '../static/scss/extra.scss'
 
-export default class MyApp extends App {
+export default class Etapes extends App {
   static async getInitialProps ({ Component, router, ctx }) {
     let pageProps = {};
 
@@ -16,6 +19,12 @@ export default class MyApp extends App {
 
   render () {
     const {Component, pageProps} = this.props;
-    return <Component {...pageProps} />
+    return (
+      <div>
+        <Header/>
+        <Component {...pageProps} />
+        <Footer/>
+      </div>
+    )
   }
 }

@@ -1,13 +1,15 @@
 import Link from 'next/link';
 import Slider from '../components/Slider';
 import svgIcon from '../static/extra/svg_icons.svg';
+import config from '../web.config';
 
 class Header extends React.Component {
 
 	constructor(props){
 		super(props);
 		this.state = {
-			menu: false
+			menu: false,
+			...config.header
 		}
 	}
 
@@ -23,11 +25,11 @@ class Header extends React.Component {
 			<header className='active'>
 				<div className='warp'>
 					<Link href="/">
-						<a>{this.props.title}</a>
+						<a>{ this.state.title }</a>
 					</Link>
 					<div className='menu' onClick={this.actMenuClick}>
 						<svg className='icon'>
-							<use xmlns="http://www.w3.org/2000/svg" xlinkHref={svgIcon + '#etapes_menu'}></use>
+							<use xmlns="http://www.w3.org/2000/svg" xlinkHref={ svgIcon + '#etapes_menu'}></use>
 						</svg>
 					</div>
 				</div>
