@@ -8,18 +8,12 @@
 # testing
 /coverage
 
-# production
-/build
-
-# nextjs
-/.next
+dist/
 
 # static
 *.ttf
 *.jpg
 *.png
-/markdown
-test.*
 *ico
 
 # misc
@@ -28,6 +22,8 @@ test.*
 .env.development.local
 .env.test.local
 .env.production.local
+
+package-lock.json
 
 npm-debug.log*
 yarn-debug.log*
