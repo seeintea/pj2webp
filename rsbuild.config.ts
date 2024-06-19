@@ -9,6 +9,6 @@ export default defineConfig({
     },
   },
   html: {
-    title: '(png | jpeg) to webp',
+    title: 'to webp',
   },
 });
