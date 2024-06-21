@@ -1,11 +1,18 @@
-import InputNumber from '@/components/InputNumber';
+import { useRef } from 'react';
+import ConvertParamsPanel, {
+  type ConvertParamsPanelRef,
+} from '@/components/ConvertParamsPanel';
+import LanguageSwitch from './components/LanguageSwitch';
 
 const App = () => {
-  const handleOnChange = (value?: number) => {
-    console.log(value);
-  };
+  const paramsRef = useRef<ConvertParamsPanelRef>(null);
 
-  return <InputNumber defaultValue={65} max={100} min={1} label="Quality" onChange={handleOnChange}/>;
+  return (
+    <div>
+      <ConvertParamsPanel ref={paramsRef} />
+      <LanguageSwitch />
+    </div>
+  );
 };
 
 export default App;
