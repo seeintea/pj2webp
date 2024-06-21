@@ -44,6 +44,9 @@ export default function InputNumber(props: InputNumberProps) {
     if (inputRef.current) {
       inputRef.current.value = '';
       setShrink(false);
+      if (props?.onChange) {
+        props.onChange();
+      }
     }
   };
 
