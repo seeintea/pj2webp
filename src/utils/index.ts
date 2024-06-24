@@ -1,4 +1,6 @@
 import noop from './noop';
 import { isMatchNumber } from './match';
 import { bindHTMLElementEvent } from './dom';
-export { noop, isMatchNumber, bindHTMLElementEvent };
+import { getFileSizeForHuman } from './size';
+
+export { noop, isMatchNumber, bindHTMLElementEvent, getFileSizeForHuman };
