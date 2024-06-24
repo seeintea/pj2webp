@@ -26,6 +26,9 @@ importers:
       i18next:
         specifier: ^23.11.5
         version: 23.11.5
+      pj2webp-wasm:
+        specifier: ./core/pkg
+        version: link:core/pkg
       react:
         specifier: ^18.3.1
         version: 18.3.1

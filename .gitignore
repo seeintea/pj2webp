@@ -12,3 +12,4 @@ dist/
 .idea
 
 core/target/
+core/pkg/
