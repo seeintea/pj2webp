@@ -10,5 +10,6 @@ export default defineConfig({
   },
   html: {
     title: 'to webp',
+    favicon: './src/assets/icon.png',
   },
 });
