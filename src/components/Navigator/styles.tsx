@@ -1,10 +1,14 @@
 import styled from '@emotion/styled';
+import { ContentControl } from '@/components/common';
 
 const NavControl = styled.nav`
   padding: 8px 16px 16px;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+`;
+
+const NavContentControl = styled(ContentControl)`
   display: flex;
   justify-content: space-between;
-  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
 `;
 
 const FlexEndControl = styled.div`
@@ -23,4 +27,4 @@ const VisuallyHiddenInput = styled('input')({
   width: 1,
 });
 
-export { NavControl, FlexEndControl, VisuallyHiddenInput };
+export { NavControl, NavContentControl, FlexEndControl, VisuallyHiddenInput };

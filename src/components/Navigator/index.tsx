@@ -8,7 +8,12 @@ import ConvertParamsPanel, {
 } from '@/components/ConvertParamsPanel';
 import LanguageSwitch from '@/components/LanguageSwitch';
 import { Space } from '@/components/common';
-import { NavControl, FlexEndControl, VisuallyHiddenInput } from './styles';
+import {
+  NavControl,
+  NavContentControl,
+  FlexEndControl,
+  VisuallyHiddenInput,
+} from './styles';
 
 interface NavigatorProps {
   generate: boolean;
@@ -32,38 +37,40 @@ export default function Navigator(props: NavigatorProps) {
 
   return (
     <NavControl>
-      <Space gap={15}>
+      <NavContentControl>
+        <Space gap={15}>
+          <FlexEndControl>
+            <Button
+              component="label"
+              role={undefined}
+              variant="contained"
+              tabIndex={-1}
+              startIcon={<CloudUpload />}
+            >
+              {t('Upload file')}
+              <VisuallyHiddenInput
+                type="file"
+                onChange={handleUploadImagesFiles}
+                multiple
+                accept="image/jpeg,image/png"
+              />
+            </Button>
+          </FlexEndControl>
+          <ConvertParamsPanel ref={paramRef} />
+          <FlexEndControl>
+            <Button
+              disabled={props.generate}
+              variant="outlined"
+              onClick={handleExecGenerate}
+            >
+              {t('Generate')}
+            </Button>
+          </FlexEndControl>
+        </Space>
         <FlexEndControl>
-          <Button
-            component="label"
-            role={undefined}
-            variant="contained"
-            tabIndex={-1}
-            startIcon={<CloudUpload />}
-          >
-            {t('Upload file')}
-            <VisuallyHiddenInput
-              type="file"
-              onChange={handleUploadImagesFiles}
-              multiple
-              accept='image/jpeg,image/png'
-            />
-          </Button>
+          <LanguageSwitch />
         </FlexEndControl>
-        <ConvertParamsPanel ref={paramRef} />
-        <FlexEndControl>
-          <Button
-            disabled={props.generate}
-            variant="outlined"
-            onClick={handleExecGenerate}
-          >
-            {t('Generate')}
-          </Button>
-        </FlexEndControl>
-      </Space>
-      <FlexEndControl>
-        <LanguageSwitch />
-      </FlexEndControl>
+      </NavContentControl>
     </NavControl>
   );
 }
