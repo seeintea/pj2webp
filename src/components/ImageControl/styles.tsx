@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-import { ContentControl, Space } from '@/components/common';
+import Space from '@/components/Space';
+import ContentControl from '@/components/ContentControl';
 
 const SectionControl = styled(ContentControl)`
   padding: 16px;

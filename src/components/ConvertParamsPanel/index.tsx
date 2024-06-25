@@ -8,7 +8,8 @@ import {
   SelectChangeEvent,
 } from '@mui/material';
 import { isMatchNumber } from '@/utils';
-import { InputNumber, Space } from '@/components/common';
+import Space from '@/components/Space';
+import InputNumber from '@/components/InputNumber';
 import { SelectControl, Text } from './styles';
 
 // support resize algorithms

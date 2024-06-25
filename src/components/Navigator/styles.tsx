@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { ContentControl } from '@/components/common';
+import ContentControl from '@/components/ContentControl';
 
 const NavControl = styled.nav`
   padding: 8px 16px 16px;

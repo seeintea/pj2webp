@@ -1,5 +1,9 @@
 import { ChangeEvent, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { IconButton, Button } from '@mui/material';
+import { Clear } from '@mui/icons-material';
 import { getFileSize } from '@/utils';
+import Space from '@/components/Space';
 import {
   TableRow,
   TableCell,
@@ -9,10 +13,6 @@ import {
   CustomTooltip,
   CustomImage,
 } from './styles';
-import { Space } from '@/components/common';
-import { useTranslation } from 'react-i18next';
-import { IconButton, Button } from '@mui/material';
-import { Clear } from '@mui/icons-material';
 
 export interface ImageData {
   id: string;

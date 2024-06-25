@@ -7,7 +7,7 @@ import ConvertParamsPanel, {
   type ConvertParamsData,
 } from '@/components/ConvertParamsPanel';
 import LanguageSwitch from '@/components/LanguageSwitch';
-import { Space } from '@/components/common';
+import Space from '@/components/Space';
 import {
   NavControl,
   NavContentControl,
