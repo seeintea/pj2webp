@@ -17,6 +17,7 @@ import {
 
 interface NavigatorProps {
   generate: boolean;
+  contentWidth?: number;
   onUpload: (files: FileList | null) => void;
   onGenerate: (params: ConvertParamsData) => void;
 }
@@ -37,7 +38,7 @@ export default function Navigator(props: NavigatorProps) {
 
   return (
     <NavControl>
-      <NavContentControl>
+      <NavContentControl width={props.contentWidth}>
         <Space gap={15}>
           <FlexEndControl>
             <Button

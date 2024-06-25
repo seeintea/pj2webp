@@ -2,7 +2,8 @@ import { useCallback, useState } from 'react';
 import { nanoid } from 'nanoid';
 import styled from '@emotion/styled';
 import Navigator from '@/components/Navigator';
-import ImageList, { type ImageItemProps } from '@/components/ImageList';
+import ImageControl from '@/components/ImageControl';
+import { type ImageData } from '@/components/ImageDetails';
 import { type ConvertParamsData } from '@/components/ConvertParamsPanel';
 
 const MainControl = styled.main`
@@ -12,22 +13,19 @@ const MainControl = styled.main`
 `;
 
 const App = () => {
-  const [imageList, setImageList] = useState<ImageItemProps[]>([]);
+  const [imageList, setImageList] = useState<ImageData[]>([]);
 
   const handleUploadImagesFiles = useCallback((files: FileList | null) => {
     if (!files) return;
-    const pushImageList: ImageItemProps[] = [];
+    const pushImageList: ImageData[] = [];
     Array.from(files).forEach((file) => {
-      // TODO: image preview create
-      pushImageList.push({
-        id: nanoid(),
-        name: file.name || '',
-        file,
-        preview: '',
-        webp: '',
-      });
+      pushImageList.push({ id: nanoid(), file });
     });
     setImageList((prev) => prev.concat(pushImageList));
+  }, []);
+
+  const handleDeleteImage = useCallback((id: string) => {
+    setImageList((prev) => prev.filter((item) => item.id !== id));
   }, []);
 
   const handleGenerateWebPFiles = useCallback((params: ConvertParamsData) => {
@@ -41,7 +39,7 @@ const App = () => {
         onUpload={handleUploadImagesFiles}
         onGenerate={handleGenerateWebPFiles}
       />
-      <ImageList imageList={imageList} />
+      <ImageControl images={imageList} onDelete={handleDeleteImage} />
     </MainControl>
   );
 };
