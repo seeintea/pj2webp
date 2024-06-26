@@ -7,7 +7,7 @@ interface ImageControlProps {
   images: ImageData[];
   onDelete?: (id: string) => void;
   onRename?: (id: string, name: string) => void;
-  onDownload?: (id: string, url: string) => void;
+  onDownload?: (item: Pick<ImageData, 'id' | 'convert'>) => void;
 }
 
 export default function ImageControl(props: ImageControlProps) {

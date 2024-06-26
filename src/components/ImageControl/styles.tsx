@@ -4,6 +4,7 @@ import ContentControl from '@/components/ContentControl';
 
 const SectionControl = styled(ContentControl)`
   padding: 16px;
+  box-sizing: content-box;
 `;
 
 const EmptyControl = styled(Space)`

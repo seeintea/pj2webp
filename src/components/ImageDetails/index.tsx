@@ -23,7 +23,7 @@ export interface ImageData {
 interface ImageDetailsProps extends ImageData {
   onDelete?: (id: string) => void;
   onRename?: (id: string, name: string) => void;
-  onDownload?: (id: string, url: string) => void;
+  onDownload?: (item: Pick<ImageData, 'id' | 'convert'>) => void;
 }
 
 export default function ImageDetails(props: ImageDetailsProps) {
@@ -47,7 +47,7 @@ export default function ImageDetails(props: ImageDetailsProps) {
 
   const handleDownloadItem = () => {
     if (props.onDownload) {
-      props.onDownload(props.id, URL.createObjectURL(props.convert!));
+      props.onDownload({ id: props.id, convert: props.convert });
     }
   };
 
