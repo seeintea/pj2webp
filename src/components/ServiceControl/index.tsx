@@ -1,12 +1,12 @@
 import { useCallback, useRef, useState } from 'react';
 import { nanoid } from 'nanoid';
-import { convert_to_webp } from 'pj2webp-wasm';
+import { getConvertFile } from 'pj2webp-wasm';
 import Navigator from '@/components/Navigator';
 import ImageControl from '@/components/ImageControl';
 import { type ConvertParamsData } from '@/components/ConvertParamsPanel';
 import { type ImageData } from '@/components/ImageDetails';
-import { MainControl } from './styles';
 import { downloadItem } from '@/utils';
+import { MainControl } from './styles';
 
 export default function ServiceControl() {
   const renameStore = useRef<Record<string, string>>({});
@@ -21,14 +21,30 @@ export default function ServiceControl() {
     setImages((prev) => prev.concat(pushImageList));
   }, []);
 
-  const handleCreateWebpFiles = useCallback((params: ConvertParamsData) => {
-    setImages((prev) =>
-      prev.map((item) => ({
-        ...item,
-        convert: convert_to_webp(item.file, params),
-      })),
-    );
-  }, []);
+  const handleCreateWebpFiles = async (params: ConvertParamsData) => {
+    const tasks: Promise<null>[] = [];
+    const update: ImageData[] = [];
+    images.forEach((image) => {
+      tasks.push(
+        new Promise((resolve) => {
+          getConvertFile(image.file, params)
+            .then((file: File) => {
+              update.push({
+                ...image,
+                convert: file,
+              });
+              resolve(null);
+            })
+            .catch(() => {
+              update.push(image);
+              resolve(null);
+            });
+        }),
+      );
+    });
+    await Promise.allSettled(tasks);
+    setImages(update);
+  };
 
   const handleDeleteItem = useCallback((id: string) => {
     setImages((prev) => prev.filter((item) => item.id !== id));

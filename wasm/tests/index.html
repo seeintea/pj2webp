@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2x1.png</title>
+  <style>
+    div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <button>download</button>
+    <input type="file" />
+  </div>
+
+  <script>
+    const createImage = () => {
+      const canvas = document.createElement("canvas")
+      canvas.width = 2;
+      canvas.height = 1;
+      const ctx = canvas.getContext("2d")
+      ctx.fillStyle = "green"
+      ctx.fillRect(0, 0, 2, 2)
+      ctx.fillStyle = "blue"
+      ctx.fillRect(0, 0, 1, 1)
+      canvas.toBlob((blob) => {
+        const url = URL.createObjectURL(blob)
+        const link = document.createElement("a")
+        link.href = url
+        link.download = "2x1.png"
+        link.click()
+        URL.revokeObjectURL(url)
+      })
+    }
+
+    const afterInputChange = async (event) => {
+      const { target: { files } } = event
+      if (!files.length) return
+      const [file] = files
+      const arrayBuffer = await file.arrayBuffer();
+      console.log('arrayBuffer: ', arrayBuffer)
+      const uint8Array = new Uint8Array(arrayBuffer)
+      console.log('Uint8Array: ', uint8Array)
+      console.log(uint8Array.toString())
+    }
+
+    let btn = document.getElementsByTagName("button")
+    if (btn.length) {
+      btn = btn[0]
+      btn.addEventListener("click", createImage)
+    }
+
+    let input = document.getElementsByTagName("input")
+    if (input.length) {
+      input = input[0]
+      input.addEventListener("change", afterInputChange)
+    }
+  </script>
+</body>
+
+</html>

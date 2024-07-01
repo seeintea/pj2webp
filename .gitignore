@@ -11,5 +11,5 @@ dist/
 !.vscode/extensions.json
 .idea
 
-core/target/
-core/pkg/
+wasm/target/
+wasm/pkg/

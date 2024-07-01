@@ -6,11 +6,15 @@ edition = "2021"
 [lib]
 crate-type = ["cdylib", "rlib"]
 
+[features]
+default = ['console_error_panic_hook']
+
 [dependencies]
 console_error_panic_hook = { version = "0.1.7", optional = true }
 image = "0.25.1"
 wasm-bindgen = "0.2.92"
-web-sys = { version = "0.3.60", features = ["File"] }
+wasm-bindgen-futures = "0.4.42"
+web-sys = { version = "0.3.69", features = ["File", "Blob", "FilePropertyBag"] }
 
 [dev-dependencies]
 wasm-bindgen-test = "0.3.34"

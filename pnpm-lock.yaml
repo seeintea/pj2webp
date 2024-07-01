@@ -30,8 +30,8 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7
       pj2webp-wasm:
-        specifier: ./core/pkg
-        version: link:core/pkg
+        specifier: ./wasm/pkg
+        version: link:wasm/pkg
       react:
         specifier: ^18.3.1
         version: 18.3.1
