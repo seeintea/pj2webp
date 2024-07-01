@@ -1,4 +1,5 @@
 mod logger;
+mod options;
 mod web;
 
 use std::panic;
