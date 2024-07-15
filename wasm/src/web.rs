@@ -30,7 +30,7 @@ pub async fn load_js_file_from_webp(image: &DynamicImage) -> File {
     let mut buffer = Cursor::new(Vec::new());
     // TODO will update
     image
-        .write_to(&mut buffer, ImageFormat::Png)
+        .write_to(&mut buffer, ImageFormat::WebP)
         .expect(&logger("error", "write to buffer failed"));
     let buffer = buffer.into_inner();
 
@@ -47,9 +47,9 @@ pub async fn load_js_file_from_webp(image: &DynamicImage) -> File {
 
     let mut options = FilePropertyBag::new();
     // TODO will update
-    options.type_("image/png");
+    options.type_("image/webp");
     let file =
-        File::new_with_buffer_source_sequence_and_options(&file_bits, "convert.png", &options)
+        File::new_with_buffer_source_sequence_and_options(&file_bits, "convert.webp", &options)
             .expect(&logger("error", "create File object failed"));
 
     file

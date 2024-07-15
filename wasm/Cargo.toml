@@ -12,6 +12,7 @@ default = ['console_error_panic_hook']
 [dependencies]
 console_error_panic_hook = { version = "0.1.7", optional = true }
 image = "0.25.1"
+image-webp = "0.1.2"
 wasm-bindgen = "0.2.92"
 wasm-bindgen-futures = "0.4.42"
 web-sys = { version = "0.3.69", features = ["File", "Blob", "FilePropertyBag"] }
